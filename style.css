@@ -2,14 +2,21 @@
     --primary: lightseagreen;
 }
 
-body, html {
+html {
     margin: 0;
     padding: 0;
-    height: 100%;
+}
+
+body {
+    min-height: 100vh;
 }
 
 ul{
     padding: 0px;
+}
+
+h2, p{
+    margin: 0px;
 }
 
 header {
@@ -23,11 +30,7 @@ header {
     margin: 0px;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 5fr; 
-}
-
-.content {
-    background-color: lightcoral;
+    grid-template-rows: auto 4fr; 
 }
 
 /*Side Bar */
@@ -36,13 +39,13 @@ header {
     font-weight: bold;
 
     background-color: lightseagreen;
-    padding: 30px;
-    grid-column: 1/2;
-    grid-row: 1/3;
+    padding: 1rem;
+    grid-area: 1 / 1 / -1 / 2;
+
+    display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr; 
-    font-size: 20px;
-   
+    grid-template-rows: auto auto 1fr; 
+    font-size: 1.2rem;
 }
 
 .logo{
@@ -58,14 +61,113 @@ header {
 }
 
 .sidebar h2{
-    border: black solid 2px;
     display: flex;
     align-items: center;
+    cursor:pointer;
 }
 
 .sidebar ul li{
-    border: black solid 2px;
     display: flex;
     align-items: center;
     padding: 10px;
+    cursor:pointer;
+}
+
+.sidebar ul li:hover{
+   font-size: 2rem;
+   transition: all 0.5s ease;
+}
+
+.content{
+    background-color: lightcoral;
+    padding: 2rem;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: clamp(20px,40px,60px) auto;
+    column-gap: 20px;
+    row-gap: 40px;
+}
+
+.cards h1{
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.card{
+    background-color: white;
+    border-radius:10px;
+    padding:20px;
+    grid-template: 1fr auto / 1rem 1fr;
+}
+
+.cardDetails{
+    margin-right:80px;
+    margin-bottom: 80px;
+}
+
+.card:hover{
+    left:20px;
+}
+
+.cardBtns{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    margin-inline:10px;
+    margin-block:10px;
+}
+
+/*ASIDE*/
+.aside{
+    padding: 0px;
+    margin: 0px;
+}
+
+.aside h1{
+    margin-bottom: 20px;
+}
+
+.asideCard{
+    background-color: white;
+    margin: 0px;
+    padding:10px;
+    border-radius: 20px;
+}
+
+.asideCard h3, .asideCard p{
+    margin-block: 0px;
+}
+
+.trendingBtn{
+    display: flex;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    width: 100%;
+    align-items: center;
+    margin-block:10px;
+}
+
+.trendingBtn:hover{
+    background-color: lightblue;
+}
+
+.trendingBtn img{
+    border-radius: 50%;
+    max-width: 40px;
+    margin-right: 10px;
+}
+
+.trendingBtnInfo p{
+    text-align: start;
 }
